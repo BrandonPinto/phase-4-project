@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sessions
   resources :reposts
   resources :saved_links
   resources :profiles
