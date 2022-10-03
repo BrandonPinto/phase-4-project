@@ -1,0 +1,2 @@
+class SavedLink < ApplicationRecord
+end
