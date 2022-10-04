@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-skip_before_action :authorize, only: :create
+skip_before_action :authenticate_user, only: :create
 # get '/login', to: 'sessions#login'
 # post '/login', to: 'sessions#create'
 # post '/logout', to: 'sessions#destroy'
 # delete '/logout', to: 'sessions#destroy'
 #  create method in ruby means finding
 def create
-    user = User.find_by(email: params[:email])
+    user = User.find_by_username(params[:username])
     if (user&.authenticate(params[:password]))
     session[:user_id] = user.id
     render json: user
@@ -30,4 +30,4 @@ end
 #   params.permit(:name, :last_name, :password_digest, :username, :password)
 # end
 end
-end
+
