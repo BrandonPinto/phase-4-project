@@ -1,4 +1,5 @@
 class Repost < ApplicationRecord
-    has_many :users
-    has_many :posts, through: :users
+    belongs_to :profile
+    belongs_to :post
+    belongs_to :user
 end

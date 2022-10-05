@@ -1,19 +1,18 @@
 class ApplicationController < ActionController::API
-# include ApplicationController::Cookies
-
-before_action :authenticate_user
-
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-def current_user
-    @current_user ||= User.find_by_id(session[:user_id])
+def get_secret_key
+    "123"
 end
 
-def authenticate_user
-    render json: {errors: "Please login!"}, status: :unauthorized unless current_user
+def generate_token(user_id)
+    JWT.encode({user_id:user_id}, get_secret_key)
 end
 
+def decode_token(token)
+    JWT.decode(token, get_secret_key)[0]["user_id"]
+end
 
 private
 def render_unprocessable_entity(invalid)

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :posts
-    has_many :reposts
     has_one :profile
+    has_many :posts, through: :profile
+    has_many :reposts, through: :profile
     has_secure_password
 end

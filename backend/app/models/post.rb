@@ -1,6 +1,5 @@
 class Post < ApplicationRecord
+    belongs_to :profile
     belongs_to :user
-    has_many :users
-    has_many :reposts, through: :users
-    
+    has_many :reposts, through: :profile
 end

@@ -1,22 +1,31 @@
 Rails.application.routes.draw do
-  get '/login', to: 'sessions#login'
-  post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
-  delete '/logout', to: 'sessions#destroy'
-  root to: "posts#index"
-  get '/profile/reposts/:id', to: 'users#user_reposts'
-  get '/homepage', to: 'posts#index'
-  get '/users', to: 'users#index'
-  get '/profile', to: 'profiles#show'
-  resources :profiles, only: [:show, :index]
-  resources :posts, only: [:show, :create, :index]
-  resources :reposts, only: [:show, :index]
-  resources :users, only: [:create, :show, :index]
 
+  resources :profiles, only: [:show, :index, :create]
+  resources :posts, only: [:show, :create, :index]
+  resources :reposts, only: [:index]
+  resources :users
+
+  get '/profile/reposts/:id', to: 'reposts#user_reposts'
+
+  get '/posts', to: 'posts#index'
+
+  get '/profiles', to: 'profiles#index'
+
+  get '/reposts', to: 'reposts#index'
+
+  get '/homepage', to: 'posts#index' #works
+
+  post '/login', to: 'users#login' #works
+
+  post '/signup', to: 'users#create' #works
+
+  get '/profile/:id', to: 'posts#user_posts' #works
+  # patch '/profile', to: 'posts#update' #to-do
 
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
+
 end

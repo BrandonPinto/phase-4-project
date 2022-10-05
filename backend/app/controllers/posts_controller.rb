@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
 
 def show
-    post = Post.find(id: session[:id])
-    post.find(id: params[:post_id])
+    post = Post.find(id: params[:id])
     render json: post
 end
+def user_posts
+    user = User.find_by!(id: params[:id])
+    render json: user
+  end
 
 def create
     post = Post.create!(post_params)
@@ -12,7 +15,8 @@ def create
 end
 
 def index
-    render json: Post.all
+    post = Post.all
+    render json: post
 end
 
 private

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_05_024958) do
   create_table "posts", force: :cascade do |t|
+    t.integer "profile_id"
     t.integer "user_id"
     t.string "link"
     t.string "image_url"
@@ -24,10 +25,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_024958) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "repost_id"
-    t.integer "post_id"
     t.string "first_name"
     t.string "last_name"
+    t.string "image"
     t.boolean "visibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_024958) do
   create_table "reposts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
+    t.integer "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
