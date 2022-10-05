@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   def index
     render json: User.all
   end
+  def user_reposts
+    user = User.find_by!(id: params[:id])
+    render json: user
+end
+
   # def create
   #   user = User.create!(user_params)
   #   if user.valid?

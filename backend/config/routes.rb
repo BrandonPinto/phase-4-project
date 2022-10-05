@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'
   root to: "posts#index"
+  get '/profile/reposts/:id', to: 'users#user_reposts'
   get '/homepage', to: 'posts#index'
   get '/users', to: 'users#index'
   get '/profile', to: 'profiles#show'

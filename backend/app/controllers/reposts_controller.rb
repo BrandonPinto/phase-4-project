@@ -1,6 +1,7 @@
 class RepostsController < ApplicationController
-    def index
-        render json: Repost.all
-    end
     
+def index
+    render json: Repost.all
+end
+
 end
