@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'
-  
-  resources :profiles
-  resources :posts
-  resources :reposts
-  resources :users
+  root to: "posts#index"
+  get '/homepage', to: 'posts#index'
+  get '/users', to: 'users#index'
+  get '/profile', to: 'profiles#show'
+  resources :profiles, only: [:show, :index]
+  resources :posts, only: [:show, :create, :index]
+  resources :reposts, only: [:show, :index]
+  resources :users, only: [:create, :show, :index]
 
 
   
