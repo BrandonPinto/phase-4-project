@@ -10,41 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_03_220844) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_013337) do
   create_table "posts", force: :cascade do |t|
-    t.string "topic"
-    t.string "relevant_link"
-    t.string "body"
-    t.integer "like"
-    t.string "comment"
+    t.integer "user_id"
+    t.string "link"
+    t.string "image_url"
+    t.string "title"
+    t.string "content"
+    t.boolean "favorite"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "repost_id"
+    t.integer "post_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "visibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reposts", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "post_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
     t.string "username"
-    t.string "password_digest"
-    t.string "saved"
-    t.string "description"
-    t.string "link"
-    t.boolean "visibility"
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "number_of_posts"
+    t.string "password"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

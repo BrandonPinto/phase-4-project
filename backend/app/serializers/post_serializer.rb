@@ -1,3 +1,3 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :topic, :relevant_link, :body, :like, :comment
+  attributes :id, :user_id, :link, :image_url, :title, :content, :favorite
 end

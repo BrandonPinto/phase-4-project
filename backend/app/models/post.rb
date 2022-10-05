@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
-    has_many :reposts
-    has_many :users, through: :reposts
+    belongs_to :user
+    has_many :users
+    has_many :reposts, through: :users
+    
 end

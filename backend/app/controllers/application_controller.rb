@@ -12,7 +12,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
     def authenticate_user
         render json: {errors: "Please login!"}, status: :unauthorized unless current_user
-
     end
 
 

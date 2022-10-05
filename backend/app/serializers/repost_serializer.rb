@@ -1,4 +1,3 @@
 class RepostSerializer < ActiveModel::Serializer
-  attributes :id, :post_id, :user_id, :profile_id
-  belongs_to @current_user
+  attributes :id, :user_id, :post_id
 end
