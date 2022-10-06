@@ -7,7 +7,6 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.string :image_url
       t.string :title
       t.string :content
-      t.boolean :favorite
       t.timestamps
     end
   end

@@ -5,7 +5,6 @@ class CreateProfiles < ActiveRecord::Migration[7.0]
       t.string :first_name
       t.string :last_name
       t.string :image
-      t.boolean :visibility
       t.timestamps
     end
   end
