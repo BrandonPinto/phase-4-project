@@ -37,13 +37,13 @@ def create
   render json: {user: user, profile: profile}
 end
 
-def update
-  if @user.update(user_params)
-    render json: @user
-  else
-    render json: @user.errors, status: :unprocessable_entity
-  end
-end
+# def update
+#   if @user.update(user_params)
+#     render json: @user
+#   else
+#     render json: @user.errors, status: :unprocessable_entity
+#   end
+# end
 
 def destroy
   @user.destroy
@@ -59,5 +59,5 @@ private
   def user_params
     params.require(:username).permit(:email, :password_digest)
   end
-end
+
 end

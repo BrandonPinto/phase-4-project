@@ -5,27 +5,28 @@ Rails.application.routes.draw do
   resources :reposts, only: [:index]
   resources :users
 
-  get '/profile/reposts/:id', to: 'reposts#user_reposts'
+  get '/profile/reposts/:id', to: 'reposts#user_reposts' #works
 
-  get '/posts', to: 'posts#index'
+  get '/post/:id', to: 'posts#show' #works
 
-  get '/profiles', to: 'profiles#index'
-
-  get '/reposts', to: 'reposts#index'
+  get '/profile/:id', to: 'posts#user_posts' #works
 
   get '/homepage', to: 'posts#index' #works
+
+  get '/profiles', to: 'profiles#index' #works
+
+  get '/reposts', to: 'reposts#index' #works
+
+  post '/posts', to: 'posts#create'
 
   post '/login', to: 'users#login' #works
 
   post '/signup', to: 'users#create' #works
 
-  get '/profile/:id', to: 'posts#user_posts' #works
+  delete '/posts/:id', to: 'posts#destroy' #works
+
+
   # patch '/profile', to: 'posts#update' #to-do
 
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
 end
+
