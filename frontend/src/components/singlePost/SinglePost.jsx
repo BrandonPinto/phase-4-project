@@ -4,6 +4,13 @@ import Moment from 'moment'
 
 
 export default function SinglePost() {
+
+
+
+
+
+
+    
     const formatDate = Moment().format("MMM Do YY")
   return (
     <div className="singlePost">

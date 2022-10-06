@@ -26,7 +26,8 @@ export default function TopBar() {
                 src=""
                 alt=""
                 />
-                <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
+                {/* this is the magnifying glass for the search */}
+                <i className="topSearchIcon fa-solid fa-magnifying-glass"></i> 
 
 
             </div>

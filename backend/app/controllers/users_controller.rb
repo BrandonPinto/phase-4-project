@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy ]
-
+  before_action :set_user, only: %i[ show update destroy ]  
 def index
   @users = User.all
 
@@ -12,7 +11,7 @@ def show
 end
 
 def login
-  user = User.find_by(username:params[:username]).try(:authenticate, params[:password])
+  user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
   if user
     token = generate_token(user.id)
     render json: {user:user, token:token}

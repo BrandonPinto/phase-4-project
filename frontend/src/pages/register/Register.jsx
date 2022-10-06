@@ -1,10 +1,21 @@
 import "./register.css"
 
 export default function Register() {
+
+
+//POST FOR SIGNUP
+
+
+
+
   return (
     <div className="register">
-        <span className="registerTitle">Login</span>
+        <span className="registerTitle">Register</span>
         <form className="registerForm">
+        <label>First Name</label>
+            <input type="text" className="registerInput" placeholder="Enter Your First Name..."/>
+            <label>Last Name</label>
+            <input type="text" className="registerInput" placeholder="Enter Your Last Name..."/>
             <label>Email</label>
             <input type="text" className="registerInput" placeholder="Enter Your Email..."/>
             
