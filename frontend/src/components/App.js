@@ -13,22 +13,20 @@ import Posts from "./posts/Posts";
 
 function App() {
 
-  
-  const user = false;
-  return (
+const user = false;
+
+return (
     <div>
       <TopBar />
           <Home />
           <Header/>
           
           <Write/>
-\          <Login/>
+          <Login/>
           <Register/>
           <Single/>
           <Posts/>
           <Settings/>
-
-
 
           {/* <Routes>
         <Route path="/" >
@@ -40,14 +38,6 @@ function App() {
           </Route>
         </Routes> */}
          
-        
-          
-        
-          
-        
-          
-
-
     </div>
   )
 }

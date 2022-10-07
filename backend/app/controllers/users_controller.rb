@@ -32,8 +32,7 @@ end
 
 def create
   user = User.create!(username: params[:username], email: params[:email], password: params[:password])
-  profile = Profile.create!(user_id: user.id, first_name: params[:first_name], last_name: params[:last_name], visibility: params[:visibility])
-  render json: {user: user, profile: profile}
+  render json: user
 end
 
 # def update
@@ -51,7 +50,12 @@ end
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    token = request.headers["token"]
+    user_id = decode_token(token)
+    puts 'hello'
+    puts user_id
+    @user = User.find_by(id: user_id)
+  # Find a User
   end
 
   # Only allow a list of trusted parameters through.

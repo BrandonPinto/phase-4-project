@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get '/profile/:id', to: 'posts#user_posts' #works
 
+  get '/me', to: 'users#show'
+
+  post '/profile', to: 'profiles#create'
+
   get '/homepage', to: 'posts#index' #works
 
   get '/profiles', to: 'profiles#index' #works

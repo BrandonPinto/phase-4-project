@@ -2,6 +2,9 @@ class ApplicationController < ActionController::API
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
+def get_secret_key
+    "jwt"
+end
 
 def generate_token(user_id)
     JWT.encode({user_id:user_id}, get_secret_key)
@@ -19,8 +22,6 @@ end
 def render_not_found(error)
     render json: {errors: {error.model => "Not Found"}}, status: :not_found
 end
-def get_secret_key
-    "stay back__heathen"
-end
+
 
 end
