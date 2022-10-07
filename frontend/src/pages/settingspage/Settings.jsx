@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom"
 import SideBar from "../../components/sidebar/SideBar"
+import { useState } from "react"
 import "./settings.css"
 
 export default function Settings() {
@@ -20,6 +21,42 @@ let handleLogout = (e) => {
     localStorage.clear()
 }
 
+const [updateInfo, setUpdateInfo] = useState({
+    username: "",
+    password: ""
+})
+
+const handleUpdate = (e) => {
+    e.preventDefault()
+    fetch("http://localhost:3000/profile", {
+        method: "PATCH",
+        headers: {
+            'Content-Type': 'application/json',
+            token: localStorage.getItem('jwt')
+        },
+        body: JSON.stringify(updateInfo),
+    }).then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data["user"]){
+            localStorage.setItem('jwt', data.token)
+            setUpdateInfo({
+                username: data.user.username,
+                password: data.user.password
+            })
+        }
+    })
+}
+
+
+let handleUpdateFormChange = (e) => {
+setUpdateInfo({
+    ...updateInfo,
+[e.target.name]: e.target.value
+    })
+}
+
+
 return (
 <div className="settings">
     <div className="settingsWrapper">
@@ -28,10 +65,10 @@ return (
             <button onClick={handleDelete}className="settingsDeleteTitle">Delete Your Account</button>
 
         </div>
-        <form className="settingsForm">
+        <form onSubmit={handleUpdate}className="settingsForm">
             <label>Profile Picture</label>
             <div className="settingsPP">
-                <img src="" 
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtGiLEPbCu6cHJvrg9-Yf7Vr0MNzVJP6TnAA&usqp=CAU" 
                 alt="" 
                 />
                 <label htmlFor="fileInput">
@@ -40,12 +77,10 @@ return (
                 <input type="file" id="fileInput" style={{display: "none"}}/>
             </div>
             <label>Username</label>
-            <input type="text" placeholder="6-10 characters" />
-            <label>Email</label>
-            <input type="email" placeholder="Your email" />
+            <input onChange={handleUpdateFormChange} name="username" type="text" placeholder="6-10 characters" />
             <label>Password</label>
-            <input type="password" />
-            <button className="settingsSubmit">Update</button>
+            <input name="password" type="password" />
+            <button onChange={handleUpdateFormChange} className="settingsSubmit">Update</button>
         </form>
         <Link to="/login">
         <button onClick={handleLogout}>Logout</button>

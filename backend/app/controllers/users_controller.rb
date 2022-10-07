@@ -36,16 +36,12 @@ def create
   render json: user
 end
 
-# def update
-#   if @user.update(user_params)
-#     render json: @user
-#   else
-#     render json: @user.errors, status: :unprocessable_entity
-#   end
-# end
+def update
+  @user.update(username: params[:username], password: params[:password])
+  render json: @user
+end
 
 def destroy
-
   @user.destroy
   render json: @user  
 end

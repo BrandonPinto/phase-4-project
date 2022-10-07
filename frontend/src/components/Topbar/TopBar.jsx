@@ -21,13 +21,14 @@ return (
             <NavLink to='/profile' className="topListItem">PROFILE</NavLink>
             <NavLink to='/login' className="topListItem">LOGIN</NavLink>
             <NavLink to='/write'className="topListItem">WRITE</NavLink>
+            <NavLink to='/register'className="topListItem">REGISTER</NavLink>
         </ul>
     </div>
 
     <div className="topRight">
         <img 
         className="topImg"
-        src=""
+        src="https://i.pinimg.com/originals/9d/40/2f/9d402fafb8d634e8b4235631c5436f86.jpg"
         alt=""
         />
         {/* this is the magnifying glass for the search */}

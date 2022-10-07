@@ -5,7 +5,7 @@ export default function SideBar() {
     <div className="sidebar">
         <div className="sidebarItem">
             <span className="sidebarTitle">ABOUT ME</span>
-            <img src="" alt=""/>
+            <img src="https://cdn.fstoppers.com/styles/full/s3/media/2021/06/04/dsc_5515-pano-2jj.jpg" alt=""/>
         </div>
         <div className="sidebarItem">
             <span className="sidebarTitle">CATEGORIES</span>

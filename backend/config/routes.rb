@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/profile/:id', to: 'posts#user_posts' #works
 
+  patch '/profile', to: 'users#update'
+
   get '/me', to: 'users#show'
 
   post '/profile', to: 'profiles#create'

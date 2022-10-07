@@ -7,7 +7,7 @@ export default function Post() {
     <div className="post">
         <img
           className="postImg"
-          src=""
+          src="https://banffnationalpark.com/wp-content/uploads/2022/04/banff-guide.jpg"
           alt=""
           />
           <div className="postInfo">

@@ -42,7 +42,7 @@ console.log(postData)
 
   return (
     <div className="write">
-        <img src="" alt="" className="writeImg" />
+        <img src="https://cdn.fstoppers.com/styles/full/s3/media/2021/06/04/dsc_5515-pano-2jj.jpg" alt="" className="writeImg" />
         <form onSubmit={handleSubmit}className="writeForm">
             <div className="writeFormGroup">
                 <label htmlFor="fileInput">
