@@ -16,6 +16,15 @@
     align-items: center;
     justify-content: center;
 }
+.logoutButton{
+    flex: .05;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+
+}
 
 .topCenter{
     flex: 6;

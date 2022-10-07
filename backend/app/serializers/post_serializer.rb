@@ -1,4 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :link, :image_url, :title, :content
-
+  attributes :link, :title, :content
+  belongs_to :user
+  belongs_to :profile
 end

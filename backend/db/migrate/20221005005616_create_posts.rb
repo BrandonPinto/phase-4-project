@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.integer :profile_id
       t.integer :user_id
       t.string :link
-      t.string :image_url
       t.string :title
       t.string :content
       t.timestamps

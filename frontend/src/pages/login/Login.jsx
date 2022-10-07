@@ -24,7 +24,7 @@ let handleSubmit = (e) => {
     body: JSON.stringify(form),
   })
     .then((res) => res.json())
-    .then((data) => {
+    .then((data) => {console.log(data)
       localStorage.setItem("jwt", data.token);
       setUser({
         name: data.user
@@ -42,7 +42,7 @@ useEffect(() => {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((data) => {console.log(data)
         setUser({
           name: data.username,
         });
@@ -61,17 +61,12 @@ useEffect(() => {
             <label>Password</label>
             <input type="password" name="password" className="loginInput" placeholder="Enter Your Password..." onChange={updateForm}/>
             <button className="loginButton">Login</button>
+            
         </form>
-        <button className="loginButton" onClick={() => {
-            localStorage.clear();
-            setUser({
-              name: "",
-            });
-          }}>LOGOUT</button>
         <button className="loginRegisterButton">Register</button>
+        
 
     </div>
   )
 }
 
-// 

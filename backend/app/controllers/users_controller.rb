@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   before_action :set_user, only: %i[ show update destroy ]  
 def index
   @users = User.all
@@ -44,13 +45,15 @@ end
 # end
 
 def destroy
+
   @user.destroy
+  render json: @user  
 end
 
 private
-  # Use callbacks to share common setup or constraints between actions.
   def set_user
     token = request.headers["token"]
+    puts token
     user_id = decode_token(token)
     puts 'hello'
     puts user_id
@@ -58,7 +61,6 @@ private
   # Find a User
   end
 
-  # Only allow a list of trusted parameters through.
   def user_params
     params.require(:username).permit(:email, :password_digest)
   end

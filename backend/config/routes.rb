@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :index, :create]
-  resources :posts, only: [:show, :create, :index]
+  resources :posts, only: [:show, :create, :index, :destroy]
   resources :reposts, only: [:index]
-  resources :users
+  resources :users, only: [:destroy, :create, :show]
 
   get '/profile/reposts/:id', to: 'reposts#user_reposts' #works
 
@@ -21,11 +21,13 @@ Rails.application.routes.draw do
 
   get '/reposts', to: 'reposts#index' #works
 
-  post '/posts', to: 'posts#create'
+  post '/write', to: 'posts#create'
 
   post '/login', to: 'users#login' #works
 
-  post '/signup', to: 'users#create' #works
+  delete '/delete_account', to: 'users#destroy'
+
+  post '/register', to: 'users#create' #works
 
   delete '/posts/:id', to: 'posts#destroy' #works
 

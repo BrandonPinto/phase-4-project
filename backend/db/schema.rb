@@ -15,7 +15,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_024958) do
     t.integer "profile_id"
     t.integer "user_id"
     t.string "link"
-    t.string "image_url"
     t.string "title"
     t.string "content"
     t.datetime "created_at", null: false

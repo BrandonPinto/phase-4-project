@@ -8,6 +8,7 @@ const [formData, setFormData] = useState({
   password: "",
   email: ""
 })
+
 const [profileData, setProfileData] = useState({
   first_name: "",
   last_name: "",
@@ -28,13 +29,11 @@ const formChange = (e) => {
   })
 }
 
-
 const handleSubmit = (e) => {
   e.preventDefault()
-console.log(formData)
-console.log(profileData)
+
   const createUser =  async () => {
-    let req = await fetch('http://localhost:3000/signup', {
+    let req = await fetch('http://localhost:3000/register', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -45,9 +44,7 @@ console.log(profileData)
     // console.log(res)
     createProfile(res)
   }
-  
   const createProfile = async (data) => {
-    console.log(data)
     let req = await fetch('http://localhost:3000/profile', {
       method: "POST",
       headers: {
@@ -64,39 +61,6 @@ console.log(profileData)
     console.log(res)
   }
   createUser()
-  // fetch(`http://localhost:3000/signup`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(formData),
-  //   }).then(res => res.json())
-  //   .then(data => {
-  //     console.log(data)
-  //     console.log(profileData)
-      
-  //     if (data) {
-  //       const makeProfile = async () => {
-  //         let res = await fetch('http://localhost:3000/profile', {
-  //           method: 'POST',
-  //           headers: {
-  //             "Content-Type": "application/json"
-  //           }),
-  //       }}
-  //         let req
-        // fetch(`http://localhost:3000/profile`, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(profileData),
-        // }).then(res => res.json())
-        // .then(data => {
-        //   console.log(data)
-        //   setProfileData(data)
-        // })
-      // }
-    // })
 }
 
   return (

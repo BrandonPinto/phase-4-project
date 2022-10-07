@@ -7,37 +7,27 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./Header/Header";
 import Posts from "./posts/Posts";
+
  
 
 function App() {
 
-const user = false;
 
+
+  
 return (
     <div>
       <TopBar />
-          <Home />
-          <Header/>
-          
-          <Write/>
-          <Login/>
-          <Register/>
+ <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/register" element={<Register />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/write" element={<Write />} />
+    <Route path="/profile" element={<Settings />} />
+    <Route path="/post/:postId" />
+  </Routes>
           <Single/>
-          <Posts/>
-          <Settings/>
-
-          {/* <Routes>
-        <Route path="/" >
-          <Route path="/register">{user ? <Home/> : <Register />}</Route>
-          <Route path="/login">{user ? <Home/> : <Login />}</Route>
-          <Route path="/write">{user ? <Write/> : <Register />}</Route>
-          <Route path="/settings">{user ? <Settings/> : <Register />}</Route>
-          <Route path="/post/:postId"></Route>
-          </Route>
-        </Routes>
-          */}
     </div>
   )
 }

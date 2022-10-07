@@ -5,11 +5,16 @@ def index
 end
 
 def show
-    profile = Profile.find(params[:id])
-    render json: profile, status: :ok
+    token = request.headers["token"]
+    user_id = decode_token(token)
+    if user_id
+    render json: Profile.find(user_id)
+    end
 end
 
 def create
+    # token = request.headers["jwt"]
+    # user_id = decode_token(token)
     profile = Profile.create!(profile_params)
     render json: profile
 end

@@ -20,22 +20,22 @@ end
 def create
     token = request.headers["token"]
     user_id = decode_token(token)
-    if user_id
-
-        new_post = Post.create!(content: params[:content], link: params[:link], image_url: params[:image_url], title: params[:title], user_id:user_id)
-
+    if token
+        new_post = Post.create!(content: params[:content],link: params[:link],title: params[:title], profile_id: user_id, user_id: user_id)
         render json: new_post
     else
-        render json: {error: "401 incorrect token"}, status: 401
+        render json: {error: "Invalid Token"},status: 404
+    end
     end
 end
+
 
 # PATCH/PUT /posts/1
 def update
     token = request.headers["token"]
     user_id = decode_token(token)
     if user_id
-        @post.update(post_params)
+        @post.update(content: params[:content],link: params[:link], title: params[:title])
         render json: @post
     else
         render json: @post.errors, status: :unprocessable_entity
@@ -48,6 +48,7 @@ def destroy
     user_id = decode_token(token)
     if user_id
     @post.destroy
+    end
 end
 
 private
@@ -58,8 +59,8 @@ end
 
 # Only allow a list of trusted parameters through.
 def post_params
-    params.require(:post).permit(:content, :link, :image_url, :title, :user_id)
+    params.permit(:content, :link, :title, :user_id, :profile_id)
 end
 
-end
+
 
