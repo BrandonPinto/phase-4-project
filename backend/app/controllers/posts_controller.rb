@@ -32,7 +32,10 @@ end
 
 # PATCH/PUT /posts/1
 def update
-    if @post.update(post_params)
+    token = request.headers["token"]
+    user_id = decode_token(token)
+    if user_id
+        @post.update(post_params)
         render json: @post
     else
         render json: @post.errors, status: :unprocessable_entity
@@ -41,6 +44,9 @@ end
 
 # DELETE /posts/1
 def destroy
+    token = request.headers["token"]
+    user_id = decode_token(token)
+    if user_id
     @post.destroy
 end
 

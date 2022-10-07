@@ -36,8 +36,8 @@ return (
           <Route path="/settings">{user ? <Settings/> : <Register />}</Route>
           <Route path="/post/:postId"></Route>
           </Route>
-        </Routes> */}
-         
+        </Routes>
+          */}
     </div>
   )
 }
