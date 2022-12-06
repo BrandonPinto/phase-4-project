@@ -28,11 +28,6 @@ console.log(postData)
         "token": token,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        title: postData.title,
-        content: postData.content,
-        link: postData.link,
-      })
     })
     let res = await req.json()
     console.log(res)

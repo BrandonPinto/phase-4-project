@@ -1,5 +1,6 @@
 import "./login.css"
 import { useState, useEffect } from "react"
+import { NavLink } from "react-router-dom";
 
 export default function Login() {
 
@@ -63,9 +64,7 @@ useEffect(() => {
             <button className="loginButton">Login</button>
             
         </form>
-        <button className="loginRegisterButton">Register</button>
-        
-
+        <NavLink to="/Register" ><button className="loginRegisterButton">Register</button></NavLink>
     </div>
   )
 }

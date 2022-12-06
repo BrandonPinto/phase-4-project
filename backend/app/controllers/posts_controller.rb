@@ -18,14 +18,13 @@ end
 
 # POST /posts
 def create
-    token = request.headers["token"]
-    user_id = decode_token(token)
+token = request.headers["token"]
+user_id = decode_token(token)
     if token
         new_post = Post.create!(content: params[:content],link: params[:link],title: params[:title], profile_id: user_id, user_id: user_id)
         render json: new_post
     else
         render json: {error: "Invalid Token"},status: 404
-    end
     end
 end
 
@@ -62,5 +61,5 @@ def post_params
     params.permit(:content, :link, :title, :user_id, :profile_id)
 end
 
-
+end
 

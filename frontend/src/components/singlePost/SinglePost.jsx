@@ -15,7 +15,7 @@ export default function SinglePost() {
   return (
     <div className="singlePost">
         <div className="singlePostWrapper">
-            <img src="https://media.cntraveler.com/photos/5c744bbbff54753046216f13/master/pass/Grand-Canyon-National-Park_GettyImages-152836923.jpg" 
+            <img src="https://traveler.marriott.com/wp-content/uploads/2017/05/ALMY_F5DBX6_MoraineLake.jpg" 
             alt="" 
             className="singlePostImg"/>
             <h1 className="singlePostTitle">
